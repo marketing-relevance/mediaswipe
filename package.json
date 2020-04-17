@@ -1,0 +1,25 @@
+{
+  "name": "mediaswipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/js/mediaswipe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marketing-relevance/mediaswipe.git"
+  },
+  "keywords": [
+    "mediaswipe",
+    "lightbox",
+    "fullscreen",
+    "js"
+  ],
+  "author": "Eric Pfeiffer <eric@marketingrelevance.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/marketing-relevance/mediaswipe/issues"
+  },
+  "homepage": "https://github.com/marketing-relevance/mediaswipe#readme"
+}
