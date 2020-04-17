@@ -1,5 +1,5 @@
 {
-  "name": "mediaswipe",
+  "name": "@marketing-relevance/mediaswipe",
   "version": "1.0.0",
   "description": "",
   "main": "src/js/mediaswipe.js",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/marketing-relevance/mediaswipe/issues"
   },
-  "homepage": "https://github.com/marketing-relevance/mediaswipe#readme"
+  "homepage": "https://github.com/marketing-relevance/mediaswipe#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
