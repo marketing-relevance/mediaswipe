@@ -1,7 +1,7 @@
 /*
 	MediaSwipe
 
-	Version: 1.0.0
+	Version: 1.0.2
 */
 
 var MediaSwipe = window.MediaSwipe || {};
@@ -1800,6 +1800,8 @@ MediaSwipe['mediaSwipe'] = (function () {
             doMouseDown(e);
         });
         $mediaSwipeTouchpad.addEventListener('mouseup', function (e) {
+            console.debug('touchpad mouse up!');
+
             e = e ? e : window.event;
             doMouseUp(e);
         });
@@ -1987,6 +1989,7 @@ MediaSwipe['mediaSwipe'] = (function () {
         if (isActive && ((gallery[currentIndex].disableSwipe === false && withinBounds) || (!withinBounds))) {
             getEvent(e, pointerHandler.start);
             pointerHandler.mouseDown = true;
+            pointerHandlerStart.mouseDown = true;
         }
     };
 
@@ -1998,6 +2001,7 @@ MediaSwipe['mediaSwipe'] = (function () {
   */
     var doMouseUp = function (e) {
         var withinBounds = withinImageBounds(e);
+
         if (isActive && ((gallery[currentIndex].disableSwipe === false && withinBounds) || (!withinBounds) || (withinBounds && pointerHandler.mouseDown))) {
             pointerHandler.mouseDown = false;
             getEvent(e, pointerHandler.end);
@@ -2105,7 +2109,9 @@ MediaSwipe['mediaSwipe'] = (function () {
                 }
 
                 // Just a click, check if we clicked out of bounds to close the gallery
-                if (!withinBounds) {
+                if (!withinBounds && (pointerHandler.start.x === pointerHandler.end.x && pointerHandler.start.y === pointerHandler.end.y)) {
+                    // console.debug(pointerHandler);
+
                     closeGallery();
                 }
 
