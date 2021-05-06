@@ -1,10 +1,10 @@
 /*
 	MediaSwipe
 
-	Version: 1.0.2
+	Version: 1.0.3
 */
 
-var MediaSwipe = window.MediaSwipe || {};
+let MediaSwipe = window.MediaSwipe || {};
 
 MediaSwipe['mediaSwipeReady'] = false;
 
@@ -1413,6 +1413,7 @@ MediaSwipe['mediaSwipe'] = (function () {
             for (var i = 0; i < domItem.attributes.length; i++) {
                 attrName = domItem.attributes[i].nodeName;
                 attrValue = domItem.getAttribute(attrName);
+
                 if (attrName === "data-mmid") {
                     mediaObject.mmid = attrValue;
                 } else if ((attrName === "data-fullscreen" || attrName === "data-fullScreen") && attrValue === "true") {
@@ -1453,7 +1454,7 @@ MediaSwipe['mediaSwipe'] = (function () {
         }
 
         if (mediaObject.src !== false && mediaObject.src !== "" && mediaObject.type !== 'html') {
-            if (/\.(jpg|png|gif)/.test(mediaObject.src.toLowerCase()) && typeof mediaObject.mmid === 'undefined') {
+            if (/\.(jp[e]?g|png|gif|webp)/.test(mediaObject.src.toLowerCase()) && typeof mediaObject.mmid === 'undefined') {
                 mediaObject.type = "image";
 
                 if (mediaObject.eventName == "") {
@@ -1800,8 +1801,6 @@ MediaSwipe['mediaSwipe'] = (function () {
             doMouseDown(e);
         });
         $mediaSwipeTouchpad.addEventListener('mouseup', function (e) {
-            console.debug('touchpad mouse up!');
-
             e = e ? e : window.event;
             doMouseUp(e);
         });
